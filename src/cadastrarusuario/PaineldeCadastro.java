@@ -199,6 +199,8 @@ public class PaineldeCadastro extends javax.swing.JFrame {
         String Login = campo_login.getText();
         String Senha = campo_senha.getText();
         
+   if (campo_senha.getText().equals(Senha) == campo_senha_ok.getText().equals(Senha)){
+      
         Usuario user = new Usuario();
         cadastrocontrole cc = new cadastrocontrole();
         
@@ -207,13 +209,14 @@ public class PaineldeCadastro extends javax.swing.JFrame {
         user.setLogin(Login);
         user.setSenha(Senha);
         
-        if (cc.cadastrar(user))
-        { JOptionPane.showMessageDialog(null, "O Cadastro foi efetuado com Sucesso!"); Limpacampo();} 
+        if (cc.cadastrar(user)){
+        JOptionPane.showMessageDialog(null, "O Cadastro foi efetuado com Sucesso!"); Limpacampo();} 
         else {JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cadastrar!!");}
-            
+         
+    }else {JOptionPane.showMessageDialog(null, "Os campos de senha precisam ser iguais!");}
+  
     }
-    
-    
+     
     public void Limpacampo() {
     campo_nome.setText("");
     campo_email.setText("");
